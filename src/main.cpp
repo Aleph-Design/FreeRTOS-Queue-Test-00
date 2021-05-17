@@ -2,11 +2,12 @@
 #include <createAllTasks.h>
 
 
-//static QueueHandle_t myQueue;
+QueueHandle_t myQueue;
 /*
-Define myQueue here results in:
-src/taskReceiver.cpp:9:19: error: 'myQueue' was not declared in this scope
-src/taskSender.cpp:15:18: error: 'myQueue' was not declared in this scope
+* Define myQueue here in main.cpp results in this global variable is defined 
+* in only one *.cpp file (which one doesn’t really matter).
+* This results in truly only one myQueue variable in the entire firmware and 
+* it’s shared between all *.cpp files correctly.
 */
 
 void setup() 
