@@ -5,15 +5,12 @@
 #include <taskSender.h>
 #include <taskReceiver.h>
 
-static QueueHandle_t myQueue;
 /*
-Define myQueue here results in [just] a warning
-In file included from src/createAllTasks.cpp:2:0:
-include/tasksConfig.h:8:22: warning: 'myQueue' defined but not used [-Wunused-variable]
- static QueueHandle_t myQueue;
-
-Well, that's correct; "myQueue" is not used in "createAllTasks.cpp", but it is in
-other functions.
+* Define myQueue here as extern is obligatory!
+* Written the declaration of myQueue as static, means that every .cpp file get
+* its own copy, or version, of myQueue variable. Static means a global variable
+* but its scope is limited to the file scope.
 */
+extern QueueHandle_t myQueue;
 
 #endif
